@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AppTheme">
+        <attr name="textStyle" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="light" value="2" />
+            <enum name="condensed" value="3" />
+            <enum name="condensedBold" value="4" />
+            <enum name="condensedLight" value="5" />
+        </attr>
+    </declare-styleable>
+</resources>
