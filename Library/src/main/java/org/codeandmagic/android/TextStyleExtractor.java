@@ -3,9 +3,16 @@ package org.codeandmagic.android;
 /**
  * Created by evelina on 16/01/2014.
  */
-public interface TextStyleExtractor {
+public abstract class TextStyleExtractor {
 
-    TextStyle getFromTextStyleOrdinal(int textStyleOrdinal);
+    public abstract TextStyle[] getTextStyles();
 
-    TextStyle[] getTextStyles();
+    public TextStyle getFromTextStyle(String textStyleName) {
+        for (TextStyle textStyle : getTextStyles()) {
+            if (textStyle.getName().equals(textStyleName)) {
+                return textStyle;
+            }
+        }
+        return null;
+    }
 }

@@ -1,14 +1,17 @@
 package org.codeandmagic.android;
 
 import android.content.Context;
+import android.content.res.Resources.Theme;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.ContextThemeWrapper;
+import android.util.TypedValue;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 
 /**
  * Utility class used to apply a custom {@link Typeface} to a {@link TextView} subclass.
@@ -21,12 +24,12 @@ public class TypefaceManager {
         return INSTANCE;
     }
 
-    public static void setTextStyleExtractor(TextStyleExtractor textStyleExtractor) {
-        INSTANCE.mTextStyleExtractor = textStyleExtractor;
+    public static void addTextStyleExtractor(TextStyleExtractor textStyleExtractor) {
+        INSTANCE.mTextStyleExtractors.add(textStyleExtractor);
     }
 
-    private final Map<TextStyle, Typeface> mTypefaces = new HashMap<TextStyle, Typeface>();
-    private TextStyleExtractor mTextStyleExtractor;
+    private final HashMap<TextStyle, Typeface> mTypefaces = new HashMap<TextStyle, Typeface>();
+    private final HashSet<TextStyleExtractor> mTextStyleExtractors = new HashSet<TextStyleExtractor>();
 
     private TypefaceManager() {
         // Singleton
@@ -43,15 +46,28 @@ public class TypefaceManager {
     public void applyTypeface(TextView textView, Context context, AttributeSet attrs) {
         final TypedArray styleValues = context.obtainStyledAttributes(attrs, new int[]{android.R.attr.textAppearance});
         final int textAppearanceStyleId = styleValues.getResourceId(0, 0);
+
         if (textAppearanceStyleId != -1) {
-            final ContextThemeWrapper themedContext = new ContextThemeWrapper(context, textAppearanceStyleId);
-            final TypedArray textAppearanceStyleValues = themedContext.obtainStyledAttributes(new int[]{R.attr.textStyle});
-            final int textStyleOrdinal = textAppearanceStyleValues.getInt(0, -1);
-            if (textStyleOrdinal != -1) {
-                final TextStyle textStyle = mTextStyleExtractor.getFromTextStyleOrdinal(textStyleOrdinal);
-                applyTypeface(textView, textStyle);
+            final Theme textAppearanceStyle = context.getResources().newTheme();
+            textAppearanceStyle.applyStyle(textAppearanceStyleId, true);
+
+            final TypedValue textStyleValue = new TypedValue();
+            textAppearanceStyle.resolveAttribute(R.attr.textStyle, textStyleValue, true);
+
+            if (textStyleValue.type == TypedValue.TYPE_STRING) {
+                final String textStyleName = textStyleValue.string.toString();
+
+                if (!TextUtils.isEmpty(textStyleName)) {
+                    for (TextStyleExtractor extractor : mTextStyleExtractors) {
+
+                        final TextStyle textStyle = extractor.getFromTextStyle(textStyleName);
+                        if (textStyle != null) {
+                            applyTypeface(textView, textStyle);
+                            break;
+                        }
+                    }
+                }
             }
-            textAppearanceStyleValues.recycle();
         }
         styleValues.recycle();
     }
