@@ -4,5 +4,16 @@
     <string name="app_name">TypefaceLibrary</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="default_text">Default Text (Roboto)</string>
+    <string name="roboto_light">Roboto Light</string>
+    <string name="roboto_bold">Roboto Bold</string>
+    <string name="roboto_bold_from_code">Roboto Bold (from code)</string>
+    <string name="roboto_condensed">Roboto Condensed</string>
+    <string name="roboto_condensed_light">Roboto Condensed Light</string>
+    <string name="roboto_condensed_bold">Roboto Condensed Bold</string>
+    <string name="sourcesans_regular">SourceSansPro Regular Text</string>
+    <string name="sourcesans_light_italic">SourceSansPro LightItalic</string>
+    <string name="sourcesans_semi_bold_italic">SourceSansPro SemiBoldItalic</string>
+    <string name="switch_theme">Switch Theme</string>
 
 </resources>

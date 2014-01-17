@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,73 +13,69 @@
     <org.codeandmagic.android.TypefaceTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Default Text"/>
+        android:text="@string/default_text"/>
 
     <org.codeandmagic.android.TypefaceTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Light"
-        android:text="Roboto Light"/>
+        android:fontFamily="light"
+        android:text="@string/roboto_light"/>
 
     <org.codeandmagic.android.TypefaceTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Bold"
-        android:text="Roboto Bold"/>
+        android:fontFamily="bold"
+        android:text="@string/roboto_bold"/>
+
+    <org.codeandmagic.android.TypefaceTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/roboto_bold_from_code"/>
+
+    <org.codeandmagic.android.TypefaceTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="condensed"
+        android:text="@string/roboto_condensed"/>
+
+    <org.codeandmagic.android.TypefaceTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="condensedBold"
+        android:text="@string/roboto_condensed_light"/>
 
     <org.codeandmagic.android.TypefaceTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Roboto Bold (from code)"/>
+        android:fontFamily="condensedBold"
+        android:text="@string/roboto_condensed_bold"/>
 
     <org.codeandmagic.android.TypefaceTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Condensed"
-        android:text="Roboto Condensed"/>
+        android:fontFamily="regular"
+        android:text="@string/sourcesans_regular"/>
 
     <org.codeandmagic.android.TypefaceTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Condensed.Light"
-        android:text="Roboto Condensed Light"/>
+        android:fontFamily="lightItalic"
+        android:text="@string/sourcesans_light_italic"/>
 
     <org.codeandmagic.android.TypefaceTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.Condensed.Bold"
-        android:text="Roboto Condensed Bold"/>
+        android:fontFamily="semiBoldItalic"
+        android:text="@string/sourcesans_semi_bold_italic"/>
 
-    <org.codeandmagic.android.TypefaceTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Default Text"/>
-
-    <org.codeandmagic.android.TypefaceTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.LightItalic"
-        android:text="SourceSansPro LightItalic"/>
-
-    <org.codeandmagic.android.TypefaceTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.SemiBoldItalic"
-        android:text="SourceSansPro SemiBoldItalic"/>
-
-    <org.codeandmagic.android.TypefaceTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.SemiBoldItalic"
-        android:text="SourceSansPro Black"/>
-
-    <Button
+    <org.codeandmagic.android.TypefaceButton
         android:id="@+id/switch_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:text="Switch Theme"/>
+        android:fontFamily="black"
+        android:text="@string/switch_theme"/>
 
 </LinearLayout>

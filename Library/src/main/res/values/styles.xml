@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="AppTheme.Light" parent="Theme.AppCompat.Light">
         <item name="android:textViewStyle">@style/TextViewStyle.Light</item>
@@ -8,52 +8,26 @@
         <item name="android:textViewStyle">@style/TextViewStyle.Dark</item>
     </style>
 
-    <style name="TextViewStyle" parent="android:Widget.TextView">
-        <item name="android:textAppearance">@style/TextAppearance</item>
-    </style>
-
     <style name="TextViewStyle.Light">
-        <item name="android:textColor">#333333</item>
+        <item name="android:textAppearance">@style/TextAppearance.Light</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">light</item>
     </style>
 
     <style name="TextViewStyle.Dark">
-        <item name="android:textColor">#efefef</item>
+        <item name="android:textAppearance">@style/TextAppearance.Dark</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">black</item>
     </style>
 
+    <!-- TextAppearance definitions -->
     <style name="TextAppearance" parent="android:TextAppearance">
         <item name="android:textSize">18sp</item>
-        <item name="textStyle">normal</item>
-    </style>
-
-    <style name="TextAppearance.Bold">
-        <item name="textStyle">bold</item>
     </style>
 
     <style name="TextAppearance.Light">
-        <item name="textStyle">light</item>
+        <item name="android:textColor">#9933cc</item>
     </style>
 
-    <style name="TextAppearance.Condensed">
-        <item name="textStyle">bold</item>
-    </style>
-
-    <style name="TextAppearance.Condensed.Light">
-        <item name="textStyle">condensedLight</item>
-    </style>
-
-    <style name="TextAppearance.Condensed.Bold">
-        <item name="textStyle">condensedBold</item>
-    </style>
-
-    <style name="TextAppearance.Black">
-        <item name="textStyle">black</item>
-    </style>
-
-    <style name="TextAppearance.LightItalic">
-        <item name="textStyle">lightItalic</item>
-    </style>
-
-    <style name="TextAppearance.SemiBoldItalic">
-        <item name="textStyle">semiBoldItalic</item>
+    <style name="TextAppearance.Dark">
+        <item name="android:textColor">#fdbb33</item>
     </style>
 </resources>
