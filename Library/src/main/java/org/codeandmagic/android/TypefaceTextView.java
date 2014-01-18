@@ -14,6 +14,10 @@ public class TypefaceTextView extends TextView {
         TypefaceManager.getInstance().applyTypeface(this, context, attrs);
     }
 
+    /**
+     * Convenience method in case I need to change the font from code as well.
+     * @param textStyle
+     */
     public void setTextStyle(TextStyle textStyle) {
         TypefaceManager.getInstance().applyTypeface(this, textStyle);
     }
